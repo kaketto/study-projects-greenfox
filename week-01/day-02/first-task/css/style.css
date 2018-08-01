@@ -1,0 +1,70 @@
+body {
+    background-image: url(../images/background.png);
+    margin: 0;  
+}
+
+header {
+    background-color: #333333;
+    height: 60px;
+}
+
+.logo, .nav {
+    display: inline-block;
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 10%;
+}   
+
+.nav ul{
+    position: absolute;
+    right: 10%;
+    top: -10px;
+}
+
+.menu {
+    display: inline-block;
+    color: #ff0099;
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding: 15px;
+    font-family: Andale Mono, monospace;
+}
+
+.center {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 100px;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#title {
+    color: #ff0099;
+    font-size: 30px;
+}
+
+h2, .separator {
+    text-align: center;
+    padding: 25px;
+}
+
+.base-text, dd {
+    font-family: Consolas, courier;
+}
+
+.base-text {
+    font-size: 20px;
+}
+
+dt {
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
