@@ -5,8 +5,8 @@
 'use strict';
 
 let baseNum: number = 123;
-function doubling(anyNumber: number) {
-    return Math.round(anyNumber * 2);
+function doubling(anyNumber: number): number {
+    return anyNumber * 2;
 }
 
 console.log(doubling(baseNum));
