@@ -14,23 +14,20 @@
 
 'use strict';
 
-let matrix: number[] = [];
+let matrix: number[][] = [];
 let countLine: number = 4;
-//let arr: number[] = [];
-//matrix[1].push(0);
-//console.log(matrix);
 
-
-for (let i: number = 0; i < countLine; i++) {
-    if (i == countLine - 1) {
-        matrix.push(1);
-    } else {
-        matrix.push(0);
+for (let row: number = 0; row < countLine; row++) {
+    matrix[row] = [];
+    for (let column: number = 0; column < countLine; column++) {
+        if (row == countLine - column - 1) {
+            matrix[row].push(1);
+        } else {
+            matrix[row].push(0);
+        }
     }
-
 }
-//console.log(arr);
-console.log(matrix);
 
-
-
+matrix.forEach(function (arr: number[]) {
+    console.log(arr.join(' '));
+});
