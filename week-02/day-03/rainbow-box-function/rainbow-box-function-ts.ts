@@ -10,7 +10,8 @@ const ctx = canvas.getContext('2d');
 // and draws a square of that size and color to the center of the canvas.
 // Create a loop that fills the canvas with rainbow colored squares.
 
-function drawRainbowSquares (size: number; color: any) {
+let rainbowColors: string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+function drawRainbowSquares (size: number, color: any) {
     ctx.fillStyle = color;
     ctx.fillRect((canvas.width - size) / 2, (canvas.height - size) / 2, size, size); 
 }
@@ -28,8 +29,7 @@ for (let i: number = canvas.height / 2; i > 0; i--) {
 let sizeDiff: number = Math.floor(Math.random() * 100);
 let squareSize: number = canvas.height;
 for (let i: number = 0; i < canvas.height / sizeDiff; i++) {
-    let rgbRandom = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
-    drawRainbowSquares(squareSize, rgbRandom);
+    drawRainbowSquares(squareSize, rainbowColors[i % rainbowColors.length]);
     squareSize -= sizeDiff;
 }
 
