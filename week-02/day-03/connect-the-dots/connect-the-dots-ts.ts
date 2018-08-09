@@ -18,9 +18,13 @@ function drawLines (list: any[][]) {
     ctx.beginPath();
     ctx.strokeStyle = 'green';
     ctx.moveTo(list[0][0], list[0][1]);
+    list.forEach(coordinate => ctx.lineTo(coordinate[0], coordinate[1]));
+
+    /*below for loop does the same as .forEach above:
     for (let i: number = 1; i < list.length; i++) {
         ctx.lineTo(list[i][0], list[i][1]);
     }
+    */
     ctx.lineTo(list[0][0], list[0][1]);
     ctx.stroke();
 }
@@ -28,23 +32,16 @@ function drawLines (list: any[][]) {
 drawLines(dots1);
 drawLines(dots2);
 
-/* HOW TO INCREASE ALL X BY 110 WITH .MAP????
-let dots3: any[][] = dots1.map([x, y] => [x + 110, y]);
-
-let dots3: any[][] = dots1.map(function (arr, index) {
-    arr[index][0] += 70;         
+//how to change all x coordinates to move the same drawing to the right for instance
+let dots3 = dots2.map(function(coordinates: any[]) {
+    return [coordinates[0] + 110, coordinates[1]];
 });
-*/
 
-let dots3: any[][] = [[170, 100], [190, 70], [200, 90], [210, 90], [220, 70],[240, 100], [205, 130], [170, 100]];
+//method 2
+function calculateNewCoordinates(coordinates: any[]): number[] {
+    return [coordinates[0] + 150, coordinates[1]];
+}
+let dots4 = dots2.map(elem => calculateNewCoordinates(elem));
+
 drawLines(dots3);
-
-let dots4: any[][] = [[135, 160], [155,160], [145, 170]];
-
-
-
-let dots4v2 = dots4.map(coordinates => [coordinates[0] + 20, coordinates[1]]);
-
-console.log(dots4v2);
-
 drawLines(dots4);
