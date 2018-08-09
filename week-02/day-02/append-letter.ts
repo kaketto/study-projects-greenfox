@@ -4,7 +4,7 @@
 let far: string[] = ['bo', 'anacond', 'koal', 'pand', 'zebr'];
 
 function appendA (arr: string[]) {
-    let newArr: string[] = arr.map( function(item: string) {
+    let newArr: string[] = arr.map( function (item: string) {
         return item += 'a';
     });
     return newArr;

@@ -12,20 +12,19 @@ let generatedNumberForRounds: number;
 let generatedIndividualNumber: number;
 
 generatedNumberForRounds = Math.round(Math.random() * 10 + 1);
-//console.log(generatedNumberForRounds);
+// to print for checking
+console.log(generatedNumberForRounds);
 
 for (let i: number = 0; i < generatedNumberForRounds; i++) {
     generatedIndividualNumber = Math.round(Math.random() * 20);
     randomNumbers.push(generatedIndividualNumber);
 }
 let sum: number = randomNumbers[0];
-//console.log(randomNumbers);
+// to print for checking
+console.log(randomNumbers);
 
 for (let i: number = 1; i < randomNumbers.length; i++) {
     sum += randomNumbers[i];
 }
 console.log(sum);
 console.log(sum / randomNumbers.length);
-
-
-

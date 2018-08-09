@@ -9,13 +9,13 @@ const ctx = canvas.getContext('2d');
 let size: number = 50;
 
 for (let row: number = 0; row < 1000; row += size) {
+    let column: number;
     if (row % (size * 2) == 0) {
-        for (let column: number = 0; column < 1000; column += size * 2) {
-            ctx.fillRect(row, column, size, size);
-        }
+        column = 0;
     } else {
-        for (let column: number = size; column < 1000; column += size * 2) {
+        column = size;
+    }
+    for (column; column < 1000; column += size * 2) {
             ctx.fillRect(row, column, size, size);
-         }
     }
 }

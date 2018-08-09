@@ -40,4 +40,11 @@ let dots3: any[][] = [[170, 100], [190, 70], [200, 90], [210, 90], [220, 70],[24
 drawLines(dots3);
 
 let dots4: any[][] = [[135, 160], [155,160], [145, 170]];
+
+
+
+let dots4v2 = dots4.map(coordinates => [coordinates[0] + 20, coordinates[1]]);
+
+console.log(dots4v2);
+
 drawLines(dots4);

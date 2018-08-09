@@ -9,7 +9,7 @@ if (girls >= boys) {
 } else {
     numberOfPairs = girls.length;
 }
-
+/*
 function makingMatches(list1: string[], list2: string[]) {
     let pairs: string[] = [];
     for (let i: number = 0; i < numberOfPairs; i++) {
@@ -21,4 +21,13 @@ function makingMatches(list1: string[], list2: string[]) {
 
 console.log(makingMatches(girls, boys));
 
-//export = makingMatches;
+export = makingMatches;
+*/
+
+function makingMatches(list1, list2) {
+    for (let i: number = 1; i < list1.length; i++) {
+        list1.splice(i, 0, list2[i-1])
+    }
+}
+
+
