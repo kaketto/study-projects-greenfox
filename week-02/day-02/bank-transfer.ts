@@ -25,19 +25,41 @@ const accounts: any[] = [
 //	{ clientName: 'Sergei', accountNumber: 23456311, balance: 1354100.0 }
 //]
 
-
-function getNameAndBalance (account: number) {
-    let NameAndBalance: any[] = account[accounts.indexOf(account)]["clientName"] + accounts[accounts.indexOf(account)]["balance"];
-    return NameAndBalance;
+//this function identifies the position of the object within the array that includes the account number in question:
+function indexOfAccount(number: number) {
+  let checkOfAccounts: boolean[] = accounts.map(obj => obj.accountNumber === number);
+  return checkOfAccounts.indexOf(true);
 }
 
-console.log(getNameAndBalance(11234543));
+function getNameAndBalance(numberOfAccount: number) {
+  if (indexOfAccount(numberOfAccount) === -1) {
+    console.log('404 - account not found');
+  } else {
+    let NameAndBalance: any[] = [accounts[indexOfAccount(numberOfAccount)]['clientName'], accounts[indexOfAccount(numberOfAccount)]['balance']];
+    console.log(NameAndBalance);
+  }
+}
 
-/*
+getNameAndBalance(11234543);
+
+function transferAmount(array, fromAccount, toAccount, number) {
+  if (indexOfAccount(fromAccount) === -1 || indexOfAccount(toAccount) === -1) {
+    console.log('404 - account not found');
+  } else {
+    array[indexOfAccount(fromAccount)]['balance'] -= number;
+    array[indexOfAccount(toAccount)]['balance'] += number;
+  }
+}
+
+transferAmount(accounts, 43546731, 23456311, 500.0);
+console.log(accounts);
+
 export = {
-    getNameAndBalance,
-    transferAmount,
-    accounts
-  };
-*/
+  getNameAndBalance,
+  transferAmount,
+  accounts
+};
+
+
+
 
