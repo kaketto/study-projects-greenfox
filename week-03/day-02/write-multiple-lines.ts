@@ -23,15 +23,14 @@ console.log(isAccessable('multi-lines.txt'));
 
 function writeMultipleLines (path:string, word:string, number:number) {
   if (isAccessable(path)) {
-    fs.writeFileSync(path, word + '\n');
-    for (let i: number = 1; i < number; i++) {
-      fs.appendFileSync(path, word + '\n')
+    for (let i: number = 0; i < number; i++) {
+      fs.appendFileSync(path, word);
+      fs.appendFileSync(path, '\n');
     }
     console.log(fs.readFileSync(path, 'utf-8'));  
   } else {
     return;
   }
 }
-
 
 writeMultipleLines('multi-lines.txt', 'Romanes eunt domus', 10);
