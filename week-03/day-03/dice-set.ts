@@ -55,18 +55,13 @@ function rollUntilAllSix (diceSet: DiceSet) {
   console.log(`The first roll results in ${diceSet.dices}`);
   let counter: number = 0;
   while (diceSet.dices.some(item => item !==6)) {
-    let index: number[] = [];
-    diceSet.dices.forEach(function (item) {
-      if (item !== 6) {
-        index.push(diceSet.dices.indexOf(item));
-      }
-    });
-    for (let i: number = 0; i < index.length; i++) {
-      diceSet.reroll(index[i]);
-    }
-    counter++;
-  }   
-  return `After ${counter} rolls we got ${diceSet.dices}`;
+    for (let i: number = 0; i < diceSet.numOfDices; i++) {
+      if (diceSet.dices[i] !== 6) {
+        diceSet.reroll(i);
+    }}
+    counter++;   
+  }  
+  return `After ${counter} rolls we get ${diceSet.dices}`;
 }
 
 console.log(rollUntilAllSix(diceSet));
