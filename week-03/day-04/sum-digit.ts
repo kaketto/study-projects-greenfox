@@ -5,12 +5,11 @@
 'use strict';
 
 function sumOfDigits (n: number) {
-  let sum: number = 0;
   if (n < 10) {
-    return sum + n;
+    return n;
   } else {
-    return sum + n % 10 + sumOfDigits(Math.floor(n / 10));
+    return n % 10 + sumOfDigits(Math.floor(n / 10));
   }
 }
 
-console.log(sumOfDigits(1987));
+console.log(sumOfDigits(853));
