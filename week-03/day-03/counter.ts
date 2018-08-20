@@ -10,8 +10,8 @@
 export {};
 
 class Counter {
-  integer: number;
-  origInteger: number;
+  private integer: number;
+  private origInteger: number;
 
   constructor (integer: number = 0) {
     this.integer = integer
@@ -43,5 +43,5 @@ counting.add(4);
 console.log(counting.get());
 
 counting.reset();
-console.log(counting.integer);
+console.log(counting.get());
 
