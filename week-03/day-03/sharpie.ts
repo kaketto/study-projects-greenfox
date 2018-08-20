@@ -7,9 +7,9 @@
 
 'use strict';
 
-class Sharpie {
-  color: string;
-  width: number;
+export class Sharpie {
+  private color: string;
+  private width: number;
   inkAmount: number;
 
   constructor (color: string, width: number, inkAmount: number = 100) {
@@ -23,12 +23,12 @@ class Sharpie {
   }
 }
 
-let sharpie1 = new Sharpie('black', 20);
-let sharpie2 = new Sharpie('red', 25);
-console.log(sharpie1);
-console.log(sharpie2);
+// let sharpie1 = new Sharpie('black', 20);
+// let sharpie2 = new Sharpie('red', 25);
+// console.log(sharpie1);
+// console.log(sharpie2);
 
-sharpie2.use();
-console.log(sharpie2);
+// sharpie2.use();
+// console.log(sharpie2);
 
 
