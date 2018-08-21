@@ -5,7 +5,6 @@ import { Tree } from "./tree";
 export class Garden {
   private flowers: Flower[];
   private trees: Tree[];
-  private wateringAmount: number;
 
   constructor() {
     this.flowers = [];
