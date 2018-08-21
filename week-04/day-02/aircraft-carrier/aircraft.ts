@@ -37,6 +37,10 @@ export class Aircraft {
     return `Type ${this.type}, Ammo: ${this.ammoStore}, Base Damage: ${this.baseDamage}, All Damage: ${this.ammoStore * this.baseDamage}`;
   }
 
+  getAllDamage(): number {
+    return this.ammoStore * this.baseDamage;
+  }
+
   isPriority() {
   }
 }
