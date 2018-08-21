@@ -1,25 +1,14 @@
 'use strict';
+import { Plant } from "./plant";
 
-export class Flower {
-  private color: string;
-  private waterAmount: number;
+export class Flower extends Plant {
 
   constructor(color: string) {
+    super(color);
     this.color = color;
     this.waterAmount = 4;
-  }
-
-  needWater(): boolean {
-    if (this.waterAmount < 5) {
-      return true;
-    }
-  }
-
-  getWater(water: number): void {
-    this.waterAmount += water * 0.75;
-  }
-
-  getColor(): string {
-    return this.color;
+    this.needWaterLimit = 5;
+    this.waterAbsorbation = 0.75;
   }
 }
+
