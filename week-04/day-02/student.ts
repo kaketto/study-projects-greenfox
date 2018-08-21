@@ -21,8 +21,7 @@ export class Student extends Person {
   }
 
   introduce() {
-    console.log(`${this.getIntroText()} from ${this.previousOrganization} who skipped
-      ${this.skippedDays} days from the course already.`);
+    console.log(`${this.getIntroText()} from ${this.previousOrganization} who skipped ${this.skippedDays} days from the course already.`);
   }
 
   skipDays(numberOfDays: number) {
