@@ -15,3 +15,7 @@ dominoes.sort(function (a: Domino, b: Domino): number {
   });
 
 console.log(dominoes);
+
+for (let domino of dominoes) {
+  domino.printAllFields();
+}

@@ -1,8 +1,9 @@
 import { Comparable } from "./comparable";
+import { Printable } from "./printable";
 
 'use strict';
 
-export class Domino implements Comparable {
+export class Domino implements Comparable, Printable {
   values: number[];
   constructor(valueA: number, valueB: number) {
       this.values = [valueA, valueB];
@@ -15,6 +16,10 @@ export class Domino implements Comparable {
     } else if (this.values === other.values) {
       return 0;
     }
+  }
+
+  printAllFields(): void {
+    console.log(this.values);
   }
 }
 
