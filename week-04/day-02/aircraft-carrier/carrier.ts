@@ -1,14 +1,14 @@
 'use strict';
 import { Aircraft } from "./aircraft";
-import { F16 } from "./f16";
-import { F35 } from "./f35";
 
 export class Carrier {
-  aircrafts: Aircraft[];
-  ammoStoreCarrier: number;
-  healthPoint: number;
+  private name: string;
+  private aircrafts: Aircraft[];
+  private ammoStoreCarrier: number;
+  private healthPoint: number;
 
-  constructor(ammoStoreCarrier: number, healthPoint: number) {
+  constructor(name: string, ammoStoreCarrier: number, healthPoint: number) {
+    this.name = name;
     this.aircrafts = [];
     this.ammoStoreCarrier = ammoStoreCarrier;
     this.healthPoint = healthPoint;
@@ -19,14 +19,19 @@ export class Carrier {
   }
 
   fill() {
-    if (this.ammoStoreCarrier < 1) {
+    if (this.ammoStoreCarrier === 0) {
       throw new Error('Ammo store is empty');
     } else {
-      this.aircrafts.forEach(element => {
-        if (element.isPriority()) {
-          this.ammoStoreCarrier = element.refill(this.ammoStoreCarrier);
-        }
-      });
+      let remainingAmmo: number;
+      let nonPriorityAircrafts: Aircraft[] = this.aircrafts.filter(elem => {return !elem.isPriority() });
+      let priorityFirstAllAircrafts: Aircraft[] = this.aircrafts.filter(elem => {return elem.isPriority() });
+      nonPriorityAircrafts.forEach(elem => priorityFirstAllAircrafts.push(elem));
+      while (this.ammoStoreCarrier > 0 && priorityFirstAllAircrafts.some(elem => elem.isAmmoNeeded())) {
+        priorityFirstAllAircrafts.forEach(elem => {
+          remainingAmmo = elem.refill(this.ammoStoreCarrier);
+          this.ammoStoreCarrier = remainingAmmo;
+        });
+      }
     }
   }
 
@@ -34,16 +39,20 @@ export class Carrier {
     let totalDamage: number = 0;
     this.aircrafts.forEach(elem => totalDamage += elem.fight());
     carrier.healthPoint -= totalDamage;
-    return `${carrier}'s health point decreased to ${carrier.healthPoint}`;
+    if (carrier.healthPoint < 0) {
+      return `${carrier.name}'s carrier is dead, baby.`
+    } else {
+      return `${carrier.name}'s health point decreased to ${carrier.healthPoint}`;
+    }
   }
 
   getStatus(): string {
     if (this.healthPoint <= 0) {
-      return 'It\'s dead Jim :(';
+      return `It's dead Jim :(`;
     } else {
       let totalPotentialDamage: number = 0;
       this.aircrafts.forEach(elem => totalPotentialDamage += elem.getAllDamage());
-      return `HP: ${this.healthPoint}, Number of aircrafts: ${this.aircrafts.length}, Ammo storage: ${this.ammoStoreCarrier}, Total damage: ${totalPotentialDamage} 
+      return `${this.name} HP: ${this.healthPoint}, Number of aircrafts: ${this.aircrafts.length}, Ammo storage: ${this.ammoStoreCarrier}, Total damage: ${totalPotentialDamage} 
       Aircrafts: ${this.aircrafts.map(elem => '\n' + elem.getStatus())}`;
     }
   }

@@ -20,9 +20,12 @@ export class Aircraft {
   }
 
   refill(numberOfAmmo: number): number {
-    if (numberOfAmmo > this.ammoMax - this.ammoStore) {
+    let remainingAmmo: number;
+    let ammoNeed: number = this.ammoMax - this.ammoStore;
+    if (numberOfAmmo > ammoNeed) {
       this.ammoStore = this.ammoMax;
-      return numberOfAmmo - (this.ammoMax - this.ammoStore);
+      remainingAmmo =  numberOfAmmo - ammoNeed;
+      return remainingAmmo;
     } else { 
       this.ammoStore += numberOfAmmo;
       return 0;
@@ -34,7 +37,7 @@ export class Aircraft {
   }
 
   getStatus(): string {
-    return `Type ${this.type}, Ammo: ${this.ammoStore}, Base Damage: ${this.baseDamage}, All Damage: ${this.ammoStore * this.baseDamage}`;
+    return `Type ${this.type}, Ammo: ${this.ammoStore}, Base Damage: ${this.baseDamage}, All Damage: ${this.getAllDamage()}`;
   }
 
   getAllDamage(): number {
@@ -42,5 +45,11 @@ export class Aircraft {
   }
 
   isPriority() {
+  }
+
+  isAmmoNeeded(): boolean {
+    if (this.ammoStore < this.ammoMax) {
+      return true;
+    }
   }
 }
