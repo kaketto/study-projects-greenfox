@@ -1,8 +1,9 @@
 import { Comparable } from "./comparable";
+import { Printable } from "./printable";
 
 'use strict';
 
-export class Thing implements Comparable{
+export class Thing implements Comparable, Printable{
   private name: string;
   private completed: boolean;
 
@@ -11,11 +12,11 @@ export class Thing implements Comparable{
       this.completed = false;
   }
 
-  public complete() {
+  complete() {
       this.completed = true;
   }
 
-  public printX() {
+  printX() {
       if (this.completed) {
           return 'X';
       } else {
@@ -23,7 +24,7 @@ export class Thing implements Comparable{
       }
   }
 
-  public printName() {
+  printName() {
       return this.name;
   }
 
@@ -35,5 +36,9 @@ export class Thing implements Comparable{
     } else if (this === other) {
       return 0;
     }
+  }
+
+  printAllFields(): void {
+      console.log(`task: ${this.name}, completed: ${this.completed}`);
   }
 }

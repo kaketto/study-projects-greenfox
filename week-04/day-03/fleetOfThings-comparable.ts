@@ -19,6 +19,9 @@ lunch.complete();
 
 fleet.print();
 
+for (let thing of fleet.getThingsArray()) {
+  thing.printAllFields();
+}
 
 
 

@@ -18,4 +18,8 @@ export class Fleet {
       this.things.forEach(item => 
       console.log(`${this.things.indexOf(item) + 1}. [${item.printX()}] ${item.printName()}`));
     }
+
+    getThingsArray(): Thing[] {
+        return this.things;
+    }
 }
