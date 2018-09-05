@@ -1,41 +1,28 @@
 'use strict';
 import { Flower } from "./flower";
-import { Tree } from "./tree";
+import { Plant } from "./plant";
 
 export class Garden {
-  private flowers: Flower[];
-  private trees: Tree[];
+  private plants: Plant[];
 
   constructor() {
-    this.flowers = [];
-    this.trees = [];
+    this.plants = [];
   }
 
-  addFlower(flower: Flower): void {
-    this.flowers.push(flower);
-  }
-
-  addTree(tree: Tree): void {
-    this.trees.push(tree);
+  addPlant(newPlant: Plant): void {
+    this.plants.push(newPlant);
   }
 
   watering(wateringAmount: number): void {
     let count: number = 0;
-    this.flowers.forEach(item => { if (item.needWater) {count++;}});
-    this.trees.forEach(item => { if (item.needWater) {count++;}});
-    this.flowers.forEach(item => { if (item.needWater) {item.getWater(wateringAmount / count)}});
-    this.trees.forEach(item => { if (item.needWater) {item.getWater(wateringAmount / count)}});
+    this.plants.forEach(item => { if (item.needWater) {count++;}});
+    this.plants.forEach(item => { if (item.needWater) {item.getWater(wateringAmount / count)}});
     console.log(`Watering with ${wateringAmount}`);
   }
 
   print(): void {
-    this.flowers.forEach(item => {
-      if (item.needWater()) {console.log(`The ${item.getColor()} Flower needs water`)} 
-      else {console.log(`The ${item.getColor()} Flower doesn't need water`)}
-    });
-    this.trees.forEach(item => {
-      if (item.needWater()) {console.log(`The ${item.getColor()} Tree needs water`)} 
-      else {console.log(`The ${item.getColor()} Tree doesn't need water`)}
-    });
+    this.plants.forEach(item => {
+      console.log(`The ${item.getColor()} ${item instanceof Flower ? 'Flower' : 'Tree'} ${item.needWater() ? 'needs water' : 'doesn\'t need water'}`);
+      })
   }
 }
