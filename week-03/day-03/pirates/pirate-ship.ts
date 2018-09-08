@@ -22,9 +22,12 @@ export class Ship {
   }
 
   printInfo(): void {
-    console.log(`${this.name}:
-    Its captain had ${this.captain.getRumLevel()} rum so far and he's ${this.captain.isHeAlive ? (!this.captain.isHeSleeping ? 'passed out' : 'awake') : 'dead'}.
+    console.log(`${this.name}'s captain had ${this.captain.getRumLevel()} rum so far and he's ${this.captain.isHeAlive() ? (this.captain.isHeSleeping() ? 'passed out' : 'awake') : 'dead'}.
     There are ${this.crew.length} pirates on board.`);
+  }
+
+  getName(): string {
+    return this.name;
   }
 
   battle(otherShip: Ship): boolean {
@@ -38,7 +41,7 @@ export class Ship {
   }
 
   win(): void {
-    console.log(`${this.name} won the battle, let's get party!`);
+    console.log(`${this.name} won the battle, time for some rum!`);
     this.captain.drinkSomeRum();
     this.crew.forEach(elem => elem.drinkSomeRum());
   }
@@ -49,12 +52,12 @@ export class Ship {
     if (this.destroyed()) {
       console.log(`${this.name} got destroyed`);
     } else {
-    console.log(`${this.name} lost the battle and ${numberOfLoss} pirates.`);
+    console.log(`${this.name} lost ${numberOfLoss} ${numberOfLoss === 1 ? 'pirate' : 'pirates'}.`);
     }
   }
 
   destroyed(): boolean {
-    if (this.crew = []) {
+    if (this.crew.length === 0) {
       return true;
     } else {
       return false;
