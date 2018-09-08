@@ -16,7 +16,9 @@ export class Pirate {
   drinkSomeRum(): void {
     if (this.isAlive) {
     this.consumedRum += Math.ceil(Math.random() * 5);
-    this.consumedRum >= 10 ? this.isSleeping = true : this.isSleeping = false;
+      if (this.consumedRum >= 10) {
+        this.isSleeping = true;
+      }
     } else {
       console.log('No more drink for the dead');      
     }
