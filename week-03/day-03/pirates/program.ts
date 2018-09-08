@@ -1,25 +1,13 @@
-import { Pirate } from "./pirates";
-import { BattleApp } from "./battle-app";
-
 'use strict';
+import { Armada } from "./armada";
 
-// let Braveheart = new Pirate();
-// let LazyEye = new Pirate();
-// let TheFool = new Pirate();
-// let Fishlips = new Pirate();
-// let GoldenTeeth = new Pirate();
+let shipnames1: string[] = ['The Right Eye', 'The Left Eye', 'The Blinder of Blinds', 'The Monocle', 'The Broken Glasses'];
+let shipnames2: string[] = ['The Wood Leg', 'The Lame', 'The Runner', 'The Snake', 'The Hobble'];
 
-// Braveheart.howsItGoingMate(LazyEye, true);
-// console.log(LazyEye);
-// console.log(Braveheart);
+let theoneeyed: Armada = new Armada('The One-Eyed ones', shipnames1);
+theoneeyed.fillArmada();
+let theoneleg: Armada = new Armada('The One-Leg ones', shipnames2);
+theoneleg.fillArmada();
+console.log(`LET THE WAR BEGIN`);
+theoneeyed.war(theoneleg);
 
-// TheFool.brawl(Fishlips);
-// GoldenTeeth.howsItGoingMate(TheFool, true);
-// TheFool.drinkSomeRum();
-// console.log(TheFool);
-// console.log(Fishlips);
-
-let firstBattle = new BattleApp();
-firstBattle.printInfo();
-firstBattle.haveABattle();
-firstBattle.printInfo();
