@@ -52,16 +52,12 @@ class DiceSet {
 
 function rollUntilAllSix (diceSet: DiceSet) {
   diceSet.roll();
-  console.log(`The first roll results in ${diceSet.dices}`);
-  let counter: number = 0;
-  while (diceSet.dices.some(item => item !==6)) {
-    for (let i: number = 0; i < diceSet.numOfDices; i++) {
-      if (diceSet.dices[i] !== 6) {
+  for (let i: number = 0; i < diceSet.numOfDices; i++) {
+    while (diceSet.dices[i] !== 6) {
         diceSet.reroll(i);
-    }}
-    counter++;   
-  }  
-  return `After ${counter} rolls we get ${diceSet.dices}`;
+    }
+  }
+  diceSet.getCurrent();
 }
 
-console.log(rollUntilAllSix(diceSet));
+rollUntilAllSix(diceSet);

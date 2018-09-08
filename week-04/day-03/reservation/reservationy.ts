@@ -1,6 +1,6 @@
 'use strict';
 
 export interface Reservationy {
-  getDowBooking(): string;
-  getCodeBooking(): string;
+  getDowBooking(): void;
+  getCodeBooking(): void;
 }

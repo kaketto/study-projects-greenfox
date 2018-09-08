@@ -40,9 +40,9 @@ export class Carrier {
     this.aircrafts.forEach(elem => totalDamage += elem.fight());
     carrier.healthPoint -= totalDamage;
     if (carrier.healthPoint < 0) {
-      return `${carrier.name}'s carrier is dead, baby.`
+      return `${this.name} attacks ${carrier.name}: ${carrier.name}'s carrier is dead, baby.`
     } else {
-      return `${carrier.name}'s health point decreased to ${carrier.healthPoint}`;
+      return `${this.name} attacks ${carrier.name}: ${carrier.name}'s health point decreased to ${carrier.healthPoint}`;
     }
   }
 

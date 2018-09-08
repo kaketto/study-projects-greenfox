@@ -16,13 +16,16 @@ function drawHexagon(xCoord, yCoord ,lineSize) {
   ctx.stroke();
 }
 
-function recursiveHexagons(xCoordinate: number, yCoordinate: number, changingSize: number, minSize: number) {
+function recursiveHexagons(xCoordinate: number, yCoordinate: number, 
+  changingSize: number) {
   drawHexagon(xCoordinate, yCoordinate, changingSize); 
-  if (changingSize > minSize) {
-    recursiveHexagons(xCoordinate + changingSize / 4, yCoordinate, changingSize / 2, minSize);
-    recursiveHexagons(xCoordinate + changingSize, yCoordinate + (changingSize * Math.sqrt(3) / 4), changingSize / 2, minSize);
-    recursiveHexagons(xCoordinate + changingSize / 4, yCoordinate + (changingSize * Math.sqrt(3) / 2), changingSize / 2, minSize);
+  if (changingSize > 10) {
+    recursiveHexagons(xCoordinate + changingSize / 4, yCoordinate, changingSize / 2);
+    recursiveHexagons(xCoordinate + changingSize, yCoordinate + 
+      (changingSize * Math.sqrt(3) / 4), changingSize / 2);
+    recursiveHexagons(xCoordinate + changingSize / 4, yCoordinate + 
+      (changingSize * Math.sqrt(3) / 2), changingSize / 2);
   }
 }
 
-recursiveHexagons(5, 50, canvas.width / 2 - 10, 10);
+recursiveHexagons(5, 50, canvas.width / 2 - 10);

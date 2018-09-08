@@ -4,6 +4,7 @@
 // then it should print an error message like: 'Unable to write file: my-file.txt'
 
 'use strict';
+export {};
 
 const fs = require('fs');
 

@@ -1,4 +1,6 @@
-class Thing {
+'use strict';
+
+export class Thing {
   private name: string;
   private completed: boolean;
 
@@ -22,5 +24,3 @@ class Thing {
       return this.name;
   }
 }
-
-export { Thing };

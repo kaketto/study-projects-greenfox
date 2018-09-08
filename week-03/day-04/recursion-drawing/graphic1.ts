@@ -20,8 +20,8 @@ function drawBoxes(xCoord, yCoord, size) {
 }
 
 function recursiveBoxes(xCoordinate, yCoordinate, changingSize: number, minSize) {
+  drawBoxes(xCoordinate, yCoordinate, changingSize)
   if (changingSize > minSize) {
-    drawBoxes(xCoordinate, yCoordinate, changingSize)
     recursiveBoxes(xCoordinate + (changingSize/ 3), yCoordinate, changingSize / 3, minSize);
     recursiveBoxes(xCoordinate, yCoordinate + (changingSize/ 3), changingSize / 3, minSize);
     recursiveBoxes(xCoordinate + (changingSize/ 3 * 2), yCoordinate + (changingSize/ 3), changingSize / 3, minSize);

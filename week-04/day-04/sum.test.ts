@@ -19,10 +19,10 @@ test('sum class', t => {
   t.end();
 });
 
-// test('sum class', t => {
-//   t.throws(new Sum(null), Error);
-//   t.end();
-// });
+test('sum class', t => {
+  t.throws(new Sum(null), 'Add a list of integers');
+  t.end();
+});
 
 test('sum class', t => {
   let list1: Sum = new Sum([1]);

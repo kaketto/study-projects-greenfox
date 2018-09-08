@@ -4,11 +4,11 @@ export class Sum {
   private listOfIntegers: any[];
 
   constructor(listOfIntegers: any[]) {
-    // if (listOfIntegers === null) {
-    //   throw new Error('Add a list of integers')
-    // } else {
+    if (listOfIntegers === null) {
+      throw new Error('Add a list of integers')
+    } else {
     this.listOfIntegers = listOfIntegers;
-    // }
+    }
   }
 
   sum() {

@@ -9,6 +9,7 @@ const fs = require('fs');
 
 function numberOfLines(file:string) {
   try {
+    fs.openSync(file);
     let fileContentArray: string[] = fs.readFileSync(file, 'utf-8').split('\n');
     return fileContentArray.length;
   } catch (e) {

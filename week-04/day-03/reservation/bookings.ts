@@ -2,15 +2,15 @@
 import { Reservation } from "./class-reservation";
 
 class Bookings {
-  private bookings: string[];
+  private bookings: Object[];
 
   constructor() {
     this.bookings = [];
   }
 
-  add(numberOfBookings: number): string[] {
+  add(numberOfBookings: number): Object[] {
     for (let i: number = 0; i < numberOfBookings; i++) {
-      this.bookings.push((new Reservation()).getBookingdetails());
+      this.bookings.push(new Reservation().getBookingItem());
     }
     return this.bookings;
   }
@@ -23,3 +23,6 @@ class Bookings {
 let bookingsToHawaii = new Bookings();
 bookingsToHawaii.add(10);
 bookingsToHawaii.print();
+console.log(bookingsToHawaii);
+console.log(bookingsToHawaii[0]);
+

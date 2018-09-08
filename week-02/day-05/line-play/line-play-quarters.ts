@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 
 let numberOfLines: number = 15;
 let numberOfQuarters: number = 16;
-let numberOfRows: number = Math.sqrt(numberOfQuarters); //equal to number of columns
+let numberOfRows: number = Math.sqrt(numberOfQuarters);
 let diff: number = (canvas.height - 20) / numberOfLines / numberOfRows;
 
 let topLeftCorner: number[] = [10 / numberOfRows, 10 / numberOfRows];
@@ -27,28 +27,8 @@ function drawLinePlay (coordinates: any[]) {
 
 for (let xMove: number = 0; xMove < numberOfRows; xMove++) {
     for (let yMove: number = 0; yMove < numberOfRows; yMove++) {
+        topLeftCorner[0] === xMove * (canvas.width / numberOfRows);
+        topLeftCorner[1] === yMove * (canvas.width / numberOfRows);
         drawLinePlay(topLeftCorner);
-        topLeftCorner[0] += xMove * (canvas.width / numberOfRows);
-        topLeftCorner[1] += yMove * (canvas.width / numberOfRows);
-        console.log(topLeftCorner[0]);
-        console.log(topLeftCorner[1]);
     }
-}    
-
-//}
-
-/* tried making shorter - in progress
-
-function drawLine (x, y, color, i) {
-    ctx.beginPath();
-    ctx.strokeStyle = color;
-    ctx.moveTo(x, y + i * diff);
-    ctx.lineTo(x + i * diff, y + diff * numberOfLines);
-    ctx.stroke();
 }
-
-for (let j: number = 1; j < numberOfLines; j++) {
-    drawLine(topLeftCorner[0], topLeftCorner[1], 'green', j);
-}
-
-*/
