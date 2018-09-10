@@ -3,25 +3,28 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 1000px;
 }
 
 .item {
   align-self: flex-end;
   width: 100%;
-
 }
 
 .green {
   background-color: rgb(27, 233, 27);
-  height: 200px;
+  height: 25%;
+  order: 1;
 }
 
 .yellow {
   background-color: rgb(253, 253, 18);
-  height: 200px;
+  height: 50%;
+  order: 3;
 }
 
 .purple {
   background-color: rgb(202, 5, 202);
-  height: 400px;
+  height: 25%;
+  order: 2;
 }
