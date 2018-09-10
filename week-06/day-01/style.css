@@ -2,11 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .item {
   align-self: flex-end;
   height: 200px;
+
 }
 
 .green {
