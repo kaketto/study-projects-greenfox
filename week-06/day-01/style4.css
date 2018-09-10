@@ -1,12 +1,14 @@
-
+body {
+  margin: 0;
+}
 nav {
   display: flex;
-  width: 1000px;
+  width: 100%;
   background-color: blueviolet;
-  height: 60px;
+  height: 100px;
   justify-content: flex-start;
   align-items: center;
-  margin: auto;
+  margin: 0 0 10px 0;
 }
 
 ul {
@@ -31,20 +33,30 @@ li {
   display: flex;
   align-items: center;
   width: 1000px;
-  height: 1000px;
   margin: auto;
 }
 
 .content {
   align-self: flex-start;
   width: 700px;
-  height: 1000px;
+  height: 700px;
   background-color: yellow;
+  order: 2;
+  margin-left: 10px;
 }
 
 .sidebar {
   align-self: flex-start;
-  width: 300px;
-  height: 1000px;
+  width: 290px;
+  height: 700px;
   background-color: rgb(9, 212, 9);
+  order: 1;
 }
+
+.footbar {
+  width: 1000px;
+  height: 80px;
+  background-color: rgb(161, 160, 160);
+  margin: 0 auto;
+  margin-top: 10px;
+} 
