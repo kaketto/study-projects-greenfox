@@ -1,0 +1,54 @@
+
+.blue {
+  margin: 0 auto;
+  width: 800px;
+  height: 100px;
+}
+
+.header {
+  background-color: cyan;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  height: 700px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  width: 70%;
+  background-color: red;
+  order:2;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  justify-content: flex-end;
+
+}
+
+.black {
+  background-color: black;
+  width: 80px;
+  height: 80px;
+  align-self: flex-end;
+  margin: 20px;
+}
+
+.sidebar {
+  width: 18.5%;
+}
+
+.left {
+  background-color: orange;
+  order: 1;
+}
+
+.right {
+  background-color: rgb(100, 8, 187);
+  order: 3;
+}
+
+.footbar {
+  background-color: blue;
+}
