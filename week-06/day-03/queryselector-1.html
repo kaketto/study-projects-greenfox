@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: QuerySelector</title>
+  </head>
+  <body>
+    <section class="container">
+      <div id="b325" class="asteroid">The King</div>
+      <div class="asteroid b326">The Conceited Man</div>
+    </section>
+    <p class="asteroid big">The Businessman</p>
+    <div class="asteroid b329 big">The Lamplighter</div>
+    
+    <script>
+      let king = document.getElementById('b325');
+      console.log(king);
+
+      let businessLamp = document.querySelectorAll('.big');
+      businessLamp.forEach(item => console.log(item.innerText));
+
+      let conceitedKing = document.querySelectorAll('section .asteroid');
+      conceitedKing.forEach(item => alert(`${item.innerText}`));
+
+      let noBusiness = document.querySelectorAll('div');
+      noBusiness.forEach(item => console.log(`${item.innerText}`));
+    
+    </script>
+  </body>
+</html>

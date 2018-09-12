@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: innerHTML, textContent</title>
+  </head>
+  <body>
+    <p class="apple">apple</p>
+    <p class="balloon">banana</p>
+    <p class="cat">car</p>
+    <p class="animals">goat rabbit <strong>cat</strong> dog</p>
+
+    <script>
+
+      // fill every paragraph with the last one's content.
+      // fill every paragraph with the last one's content keeping the cat strong.
+
+      // let content = document.getElementsByTagName('p');
+      // for (let i = 0; i < content.length - 1; i++) {
+      //   content[i].innerText = content[content.length - 1].innerText;
+      // }
+
+      let content = document.getElementsByTagName('p');
+      for (let i = 0; i < content.length - 1; i++) {
+        content[i].innerHTML = content[content.length - 1].innerHTML;
+      }
+    </script>
+
+  </body>
+</html>
