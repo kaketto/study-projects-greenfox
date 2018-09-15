@@ -38,10 +38,6 @@ node_modules/
 jspm_packages/
 package-lock.json
 tsconfig.json
-package.json
-
-
-
 
 # TypeScript v1 declaration files
 typings/
@@ -85,4 +81,5 @@ typings/
 # practice files 
 practice/
 
-
+# sql
+*.sql

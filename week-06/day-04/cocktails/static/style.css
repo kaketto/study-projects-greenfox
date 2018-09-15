@@ -1,0 +1,81 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: #5ca796;
+} 
+
+.alcohols {
+  display: flex; 
+  background-color: white;
+  color: blue;
+  font-size: 15px;
+  list-style-type: none;
+  text-transform: uppercase;
+  padding-left: 0;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+table {
+  width: 33%;
+  margin-top: 10px;
+  table-layout: auto;
+  width: 600px;
+  text-align: center;
+}
+
+th {
+  background-color: black;
+  margin-right: 5px;
+  color: white;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.price {
+  font-weight: bold;
+  width: 120px;
+}
+
+.row {
+  height: 50px;
+}
+ 
+td {
+   font-size: 20px;
+} 
+
+li {
+  padding: 10px;
+}
+
+.drink {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.drink p {
+  margin: 5px;
+}
+
+.contain {
+  font-size: 15px;
+}
+
+tr:nth-child(odd) {
+  background: #8af7df;
+}
+
+tr:nth-child(even) {
+  background: #5ca796;
+}
