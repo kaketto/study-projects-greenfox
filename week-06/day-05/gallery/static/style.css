@@ -30,18 +30,20 @@ h1 {
   transform: scale(-1, 1);
 }
 
-.main-photo {
+.main-photo-box {
   position: relative;
+  width: 800px;
+  height: 450px;
 }
 
-.main-photo img {
+.main-photo-box img {
   width: 800px;
   height: 450px;
 }
 
 .text {
   position: absolute;
-  bottom: 4px;
+  bottom: 0px;
   width: 100%;
   height: 20%;
   background-color: rgba(0, 0, 0, 0.411);

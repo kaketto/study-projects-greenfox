@@ -9,17 +9,21 @@
   <title>Photo gallery</title>
 </head>
 <body>
-  <h1>Pandas</h1>
+  <h1>Zoo</h1>
   <div class="viewer">
-    <div class="arrow-box previous"><img src="/static/images/download.svg"></div>
-    <div class="main-photo">
-      <img src= <%= photos[0].img %>>
+    <button onclick="changeToPrevPhoto()" class="arrow-box previous">
+      <img src="/static/images/download.svg">
+    </button>
+    <div class="main-photo-box">
+      <img id="main-photo" src= <%= photos[0].img %>>
       <div class="text">
         <h2><%= photos[0].title %></h2>
         <p><%= photos[0].description %></p>
       </div>
     </div>
-    <div class="arrow-box next"><img src="/static/images/download.svg"></div>
+    <button onclick="changeToNextPhoto()" class="arrow-box next">
+      <img src="/static/images/download.svg">
+    </button>
   </div>
   <ul class="thumbnails">
     <% for(let i=0; i < photos.length; i++) { %>
@@ -28,5 +32,6 @@
       </li>
     <% } %>
   </ul>
+  <script src="/static/script.js"></script>
 </body>
 </html>
