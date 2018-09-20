@@ -53,7 +53,7 @@ app.post('/posts', jsonParser, (req, res) => {
       res.status(500).send('Database error');
       return;
     }
-    connection.query(`SELECT * FROM posts WHERE id = "${result_id.insertId}"`, function(err, result_newPost) {
+    connection.query(`SELECT * FROM posts WHERE id = ${result_id.insertId}`, function(err, result_newPost) {
       if (err) {
         console.log(err.toString());
         res.status(500).send('Database error');
@@ -74,7 +74,7 @@ app.put('/posts/:id/upvote', jsonParser, (req, res) => {
       res.status(500).send('Database error');
       return;
     }
-    connection.query(`SELECT * FROM posts WHERE id = "${id}"`, function(err, result_upvotedPost) {
+    connection.query(`SELECT * FROM posts WHERE id = ${id}`, function(err, result_upvotedPost) {
       if (err) {
         console.log(err.toString());
         res.status(500).send('Database error');
@@ -95,7 +95,7 @@ app.put('/posts/:id/downvote', jsonParser, (req, res) => {
       res.status(500).send('Database error');
       return;
     }
-    connection.query(`SELECT * FROM posts WHERE id = "${id}"`, function(err, result_downvotedPost) {
+    connection.query(`SELECT * FROM posts WHERE id = ${id}`, function(err, result_downvotedPost) {
       if (err) {
         console.log(err.toString());
         res.status(500).send('Database error');
@@ -108,7 +108,7 @@ app.put('/posts/:id/downvote', jsonParser, (req, res) => {
   });
 });
 
-app.delete('/posts/:id', jsonParser, (req, res) => {
+app.delete('/posts/:id', (req, res) => {
   let id = req.params.id;
   connection.query(`DELETE FROM posts WHERE id = ${id}`, function(err, result) {
     if (err) {
@@ -117,6 +117,29 @@ app.delete('/posts/:id', jsonParser, (req, res) => {
       return;
     }
     res.status(204).send();
+  });
+});
+
+app.put('/posts/:id', jsonParser, (req, res) => {
+  let id = req.params.id;
+  let title = req.body.title;
+  let url = req.body.url;
+  connection.query(`UPDATE posts SET title = ?, url = ? WHERE id = ?`, [title, url, id], function(err, result) {
+    if (err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    connection.query(`SELECT * FROM posts WHERE id = ${id}`, function(err, result_modifiedPost) {
+      if (err) {
+        console.log(err.toString());
+        res.status(500).send('Database error');
+        return;
+      }
+      res.json(
+        result_modifiedPost[0]
+      );
+    });
   });
 });
 
