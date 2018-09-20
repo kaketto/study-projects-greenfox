@@ -66,6 +66,34 @@ app.post('/posts', jsonParser, (req, res) => {
   });
 });
 
+app.put('/posts/:id/upvote', jsonParser, (req, res) => {
+  let id = req.params.id;
+  connection.query(`SELECT score FROM posts WHERE id = ${id}`, function (err, result) {
+    if (err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    connection.query(`UPDATE posts SET score=${result[0].score + 1} WHERE id = ${id}`, function(err, result) {
+      if (err) {
+        console.log(err.toString());
+        res.status(500).send('Database error');
+        return;
+      }
+      connection.query(`SELECT * FROM posts WHERE id = "${id}"`, function(err, result_upvotedPost) {
+        if (err) {
+          console.log(err.toString());
+          res.status(500).send('Database error');
+          return;
+        }
+        res.json(
+          result_upvotedPost[0]
+        );
+      });
+  });
+});
+});
+
 app.listen(PORT, () => {
   console.log(`The server is up and running on port ${PORT}`);  
 });
