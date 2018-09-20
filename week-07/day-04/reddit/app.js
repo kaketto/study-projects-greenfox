@@ -108,6 +108,18 @@ app.put('/posts/:id/downvote', jsonParser, (req, res) => {
   });
 });
 
+app.delete('/posts/:id', jsonParser, (req, res) => {
+  let id = req.params.id;
+  connection.query(`DELETE FROM posts WHERE id = ${id}`, function(err, result) {
+    if (err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    res.status(204).send();
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`The server is up and running on port ${PORT}`);  
 });
