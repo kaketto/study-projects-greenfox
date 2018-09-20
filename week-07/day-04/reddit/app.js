@@ -44,6 +44,28 @@ app.get('/posts', (req, res) => {
   });
 });
 
+app.post('/posts', jsonParser, (req, res) => {
+  let title = req.body.title;
+  let url = req.body.url;
+  connection.query(`INSERT INTO posts SET ?`, {"title": title, "url": url}, function(err, result_id) {
+    if (err) {
+      console.log(err.toString());
+      res.status(500).send('Database error');
+      return;
+    }
+    connection.query(`SELECT * FROM posts WHERE id = "${result_id.insertId}"`, function(err, result_newPost) {
+      if (err) {
+        console.log(err.toString());
+        res.status(500).send('Database error');
+        return;
+      }
+      res.json(
+        result_newPost[0]
+    );
+    });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`The server is up and running on port ${PORT}`);  
 });
