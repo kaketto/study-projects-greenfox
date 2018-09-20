@@ -4,18 +4,28 @@ window.onload = () => {
   fetch(`${host}/v1/books`)
   .then((resp) => (resp.json()))
   .then(response => {
+
     let table = document.getElementById('books');
-    let header = document.createElement('tr');
-    header.classList.add('header');
-    let headerTitle = document.createElement('th');
-    headerTitle.textContent = 'Title';
-    header.appendChild(headerTitle);
-    table.appendChild(header);
+    let headerRow = document.createElement('tr');
+    headerRow.classList.add('header');
+    let headers = ['Title', 'Author', 'Category', 'Publisher', 'Price'];
+    headers.forEach(item => {
+      let headerItem = document.createElement('th');
+      headerItem.textContent = item;
+      headerRow.appendChild(headerItem);
+    })
+    table.appendChild(headerRow);
+
     response.books.forEach(element => {
       let row = document.createElement('tr');
-      let bookItem = document.createElement('td');
-      bookItem.textContent = element.book_name;
-      row.appendChild(bookItem);
+      for (key in element) {
+        let item = document.createElement('td');
+        item.textContent = element[key];
+        row.appendChild(item);
+        if (key === 'book_price') {
+          item.classList.add('price');
+        }
+      }        
       table.appendChild(row);
     });
   });

@@ -29,14 +29,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/v1/books', function(req, res) {
-  connection.query('SELECT book_name FROM book_mast;', function(err, rows) {
+  connection.query(`SELECT book_name, aut_name, cate_descrip, pub_name, book_price 
+  FROM book_mast LEFT JOIN category on book_mast.cate_id = category.cate_id 
+  LEFT JOIN author on book_mast.aut_id = author.aut_id 
+  LEFT JOIN publisher on book_mast.pub_id = publisher.pub_id ORDER BY book_mast.book_name;`, function(err, result) {
     if (err) {
       console.log(err.toString());
       res.status(500).send('Database error');
       return;
     }
     res.json({
-      books: rows
+      books: result
     });
   });
 });
