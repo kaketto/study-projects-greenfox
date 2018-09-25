@@ -16,25 +16,16 @@
     let div = document.querySelector('div');
     let btn = document.querySelector('button');
     let result = document.querySelector('.result')
-    btn.disabled = true;
-    let counter = 0;
-    const printText = () => {
-      result.textContent = '5 seconds elapsed and clicked 3 times';
-    }
-
-    const getReady = () => {
-      btn.disabled = false;
-    }
-
-    window.addEventListener('load', () => {
-      setTimeout(getReady, 5000)
-    });
-
-    btn.addEventListener('click', (event) => {
+    
+    const threeClicks = () => {btn.addEventListener('click', (event) => {
       if (event.detail === 3) {
-        printText();
+        result.textContent = '5 seconds elapsed and clicked 3 times';
       };
-    });
+    })};
+
+    window.onload = () => {
+      setTimeout(threeClicks, 5000);
+    }
   </script>
 </body>
 
