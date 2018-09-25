@@ -1,7 +1,7 @@
 window.onload = () => {
   const host = 'http://localhost:8080/api';
 
-  fetch(`${host}/v1/books`)
+  fetch(`${host}/v1/books/`)
   .then((resp) => (resp.json()))
   .then(response => {
 
@@ -30,3 +30,4 @@ window.onload = () => {
     });
   });
 } 
+
