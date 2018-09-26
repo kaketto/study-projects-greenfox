@@ -3,11 +3,12 @@ const tape = require('tape');
 const source = require('./poker-checker');
 
 let handBlack = ['2H', '3D', '5S', '9C', 'KD'];
-let handWhite = ['2C', '3H', '4S', '8C', 'AH'];
+let handWhite = ['7C', '8H', '9S', 'TC', 'JH'];
 let cheater1 = ['2L', '3H', 'LH', '8C', 'AH'];
 let cheater2 = ['2C', 'AH', '4S', '8C', 'AH'];
 let hand1 = ['2S', '8S', 'AS', 'QS', '3S'];
 let hand2 = ['2H', '4S', '4C', '2D', '4H'];
+let straightFlush = ['8H', '9H', 'TH', 'JH', 'QH']
 
 tape.test('can I have a green test?', t => {
   const result = 2;
@@ -93,3 +94,38 @@ tape.test('sort cards', t => {
   t.end();
 });
 
+tape.test('is a straight?', t => {
+  const result = false;
+  t.deepEqual(result,source.isAStraight(hand1));
+  t.end();
+});
+
+tape.test('is a straight?', t => {
+  const result = true;
+  t.deepEqual(result,source.isAStraight(handWhite));
+  t.end();
+});
+
+tape.test('is a flush?', t => {
+  const result = true;
+  t.equal(result,source.isAFlush(hand1));
+  t.end();
+});
+
+tape.test('is a flush?', t => {
+  const result = false;
+  t.equal(result,source.isAFlush(handBlack));
+  t.end();
+});
+
+tape.test('is a straight flush?', t => {
+  const result = true;
+  t.equal(result,source.isAStraightFlush(straightFlush));
+  t.end();
+});
+
+tape.test('is a straight flush?', t => {
+  const result = false;
+  t.equal(result,source.isAStraightFlush(handBlack));
+  t.end();
+});
