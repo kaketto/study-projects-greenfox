@@ -24,18 +24,22 @@ const isHandValid = (cards) => {
 
 const compareTwoCards = (card1, card2) => {
   if (card1[0] === card2[0]) {
-    return 'equal';
+    return 0;
   } else if (figureCardRegExp.test(card1) && figureCardRegExp.test(card2)) {
     if (card1[0] === 'A'|| card2[0] === 'T' || (card1[0] === 'K' && (card2[0] === 'Q' || card2[0] === 'J')) || (card1[0] === 'Q'&& card2[0] === 'J')) {
-      return card1;
+      return 1;
     } else {
-      return card2;
+      return -1;
     }
   } else if (card1 > card2) {
-    return card1;
+    return 1;
   } else {
-    return card2;
+    return -1;
   }
 }
 
-module.exports = {addTwoNumbers, isCardValid, isHandValid, compareTwoCards};
+const sortCards = (cards) => {
+  return cards.sort(compareTwoCards);
+}
+
+module.exports = {addTwoNumbers, isCardValid, isHandValid, compareTwoCards, sortCards};

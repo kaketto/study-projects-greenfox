@@ -6,7 +6,8 @@ let handBlack = ['2H', '3D', '5S', '9C', 'KD'];
 let handWhite = ['2C', '3H', '4S', '8C', 'AH'];
 let cheater1 = ['2L', '3H', 'LH', '8C', 'AH'];
 let cheater2 = ['2C', 'AH', '4S', '8C', 'AH'];
-
+let hand1 = ['2S', '8S', 'AS', 'QS', '3S'];
+let hand2 = ['2H', '4S', '4C', '2D', '4H'];
 
 tape.test('can I have a green test?', t => {
   const result = 2;
@@ -45,37 +46,50 @@ tape.test('valid hand?', t => {
 });
 
 tape.test('which wins?', t => {
-  const result = '5S';
+  const result = -1;
   t.equal(result,source.compareTwoCards('2H', '5S'));
   t.end();
 });
 
 tape.test('which wins?', t => {
-  const result = 'TH';
+  const result = -1;
   t.equal(result,source.compareTwoCards('2H', 'TH'));
   t.end();
 });
 
 tape.test('which wins?', t => {
-  const result = 'equal';
+  const result = 0;
   t.equal(result,source.compareTwoCards('2H', '2S'));
   t.end();
 });
 
 tape.test('which wins?', t => {
-  const result = 'equal';
+  const result = 0;
   t.equal(result,source.compareTwoCards('KH', 'KH'));
   t.end();
 });
 
 tape.test('which wins?', t => {
-  const result = 'AH';
+  const result = -1;
   t.equal(result,source.compareTwoCards('KD', 'AH'));
   t.end();
 });
 
 tape.test('which wins?', t => {
-  const result = 'QS';
+  const result = -1;
   t.equal(result,source.compareTwoCards('JD', 'QS'));
   t.end();
 });
+
+tape.test('sort cards', t => {
+  const result = ['2S', '3S', '8S', 'QS', 'AS'];
+  t.deepEqual(result,source.sortCards(hand1));
+  t.end();
+});
+
+tape.test('sort cards', t => {
+  const result = ['2H', '2D', '4S', '4C', '4H'];
+  t.deepEqual(result,source.sortCards(hand2));
+  t.end();
+});
+
