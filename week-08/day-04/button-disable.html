@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    form {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+  </style>
+  <title>Button disable</title>
+</head>
+<body>
+    <form>
+      <fieldset>
+      <legend><label for="favorite_pet">What is your favourite pet?</label></legend>
+        <input type="radio" id="dog" value="dog" name="favorite_pet" onclick="enableSignUpButton()"> Dog
+        <input type="radio" id="cat" value="cat" name="favorite_pet" onclick="enableSignUpButton()"> Cat
+        <input type="radio" id="goldfish" value="goldfish" name="favorite_pet" onclick="enableSignUpButton()"> Viktor the goldfish
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend><label for="sign_up">Do you want to sign up for cat facts?</label></legend>
+      <div>
+        <input type="radio" id="cat_yes" value="yes" name="sign_up" onclick="enableCatButton()"> Yes
+        <input type="radio" id="cat_no" value="no" name="sign_up" onclick="disableCatButtonForViktor()"> No
+      </div>
+    </fieldset>  
+      <button id="cat-button" type="submit" disabled>I love cats</button>
+      <button id="sign_up-button" type="submit" disabled>Sign up</button>
+    </form>
+  <script>
+    let catBtn = document.getElementById('cat-button');
+    let signUpBtn = document.getElementById('sign_up-button');
+    let viktorChecked = document.getElementById('goldfish');
+    let catNo = document.getElementById('cat_no');
+    
+    function enableSignUpButton() {
+      signUpBtn.disabled = false;
+    }
+
+    function enableSignUpButtonOnly() {
+      signUpBtn.disabled = false;
+    }
+
+    function enableCatButton() {
+      catBtn.disabled = false;
+    }
+    
+    catBtn.addEventListener('click', () => {
+      alert("Thank you, you've successfully signed up for cat facts");
+    });
+    
+    function disableCatButtonForViktor() {
+      viktorChecked.checked ? catBtn.disabled = true : catBtn.disabled = false;
+    }
+
+    signUpBtn.addEventListener('click', () => {
+      if (catNo.checked) {
+        alert("Sigh, we still added you to the cat facts list");
+      }
+    });
+
+  </script>
+</body>
+</html>
