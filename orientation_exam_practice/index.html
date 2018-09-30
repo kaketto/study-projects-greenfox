@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+  <script type="text/javascript" src="/assets/script.js"></script>
+  <title>Matrix checker</title>
+</head>
+<body>
+  <h1>Matrix Checker</h1>
+  <div class="intro">
+    <p>Check if your matrix is increasing!</p>
+    <p>Add a matrix and sit back while the evaluation happens.</p>
+  </div>
+  <div class="content">
+    <form action="http://localhost:8080/matrix" method="POST" enctype="application/json">
+      <label>Enter your matrix:</label><br>
+      <textarea id="matrix_input" name="matrix_input" placeholder="Enter a matrix here, e.g.
+      6 8 8
+      4 5 6
+      1 2 3 "></textarea><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="result">
+    <h2>Result</h2>
+    <p></p>
+  </div>
+</body>
+</html>
