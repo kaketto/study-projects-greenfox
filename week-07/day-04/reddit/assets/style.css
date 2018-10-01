@@ -1,0 +1,127 @@
+* {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+#banner {
+  width: 100%;
+  height: 300px;
+  background-image: url(./images/IMG_1603.JPG);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+h1 {
+  position: absolute;
+
+}
+
+.container {
+  width: 85%;
+  height: 1000px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+form {
+  width: 85%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+form input {
+  width: 70%;
+  height: 40px;
+}
+
+.posts {
+  width: 65%;
+  padding: 1.5%;
+}
+
+.sidebar {
+  width: 30%;
+  padding: 1.5%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  margin: 2px;
+  height: 70px;
+  vertical-align: middle;
+  padding-top: 10px;
+}
+
+.voting {
+  width: 50px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voting p {
+  color: gray;
+}
+
+.content {
+  width: 300px;
+  height: 70px;
+}
+.content a {
+  text-decoration: none;
+  color: black;
+}
+
+.content p {
+  font-size: 10px;
+}
+
+.sidebar .new-post, form button {
+  width: 170px;
+  height: 30px;
+  background-color: rgb(56, 114, 201);
+  margin: 2px;
+  text-align: center;
+  color: white;
+}
+
+
+.new-post a {
+  text-transform: none;
+  text-decoration: none;
+  color: white;
+  padding-top: 10px;
+  font-size: 13px;
+}
+
+.sidebar .about {
+  width: 170px;
+  height: 380px;
+  margin-top: 10px;
+  background-color: gray;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.about p {
+  font-weight: bold;
+}
