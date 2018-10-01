@@ -23,7 +23,6 @@ h1 {
 
 .container {
   width: 85%;
-  height: 1000px;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
@@ -65,7 +64,6 @@ li {
   flex-direction: row;
   background-color: white;
   margin: 2px;
-  height: 70px;
   vertical-align: middle;
   padding-top: 10px;
 }
@@ -84,8 +82,8 @@ li {
 
 .content {
   width: 300px;
-  height: 70px;
 }
+
 .content a {
   text-decoration: none;
   color: black;
@@ -93,6 +91,12 @@ li {
 
 .content p {
   font-size: 10px;
+  padding: 5px 0 0 7px;
+}
+
+.content button {
+  font-size: 10px;
+  border: none;
 }
 
 .sidebar .new-post, form button {
@@ -115,7 +119,7 @@ li {
 
 .sidebar .about {
   width: 170px;
-  height: 380px;
+  height: 90%;
   margin-top: 10px;
   background-color: gray;
   text-align: center;

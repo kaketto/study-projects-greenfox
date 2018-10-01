@@ -48,6 +48,12 @@ window.onload = () => {
       let postInfo = document.createElement('p');
       postInfo.textContent = 'submitted on ' + element['published'] + ' by ' + element['owner'];
       content.appendChild(postInfo);
+      let modifyBtn = document.createElement('button');
+      modifyBtn.innerHTML = "modify";
+      content.appendChild(modifyBtn);
+      let deleteBtn = document.createElement('button');
+      deleteBtn.innerHTML = "delete";
+      content.appendChild(deleteBtn);
       newPost.appendChild(voting);
       newPost.appendChild(content);
     list.appendChild(newPost);
