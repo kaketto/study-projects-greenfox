@@ -32,8 +32,12 @@ app.get('/newpost', (req, res) => {
   res.sendFile(path.join(__dirname, 'new_post.html'));
 });
 
+app.get('/updatepost', (req, res) => {
+  res.sendFile(path.join(__dirname, 'modify_post.html'));
+});
+
 app.get('/posts', (req, res) => {
-  connection.query(`SELECT * FROM posts`, function(err, result) {
+  connection.query(`SELECT * FROM posts ORDER BY published desc`, function(err, result) {
     if (err) {
       console.log(err.toString());
       res.status(500).send('Database error');
@@ -100,7 +104,7 @@ app.put('/posts/:id/downvote', jsonParser, (req, res) => {
   });
 });
 
-app.delete('/posts/:id', (req, res) => {
+app.post('/posts/:id', (req, res) => {
   let id = req.params.id;
   connection.query(`DELETE FROM posts WHERE id = ?`, [id], function(err, result) {
     if (err) {
@@ -108,7 +112,7 @@ app.delete('/posts/:id', (req, res) => {
       res.status(500).send('Database error');
       return;
     }
-    res.status(204).send();
+    res.redirect('/');
   });
 });
 

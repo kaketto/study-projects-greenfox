@@ -13,13 +13,28 @@
     <h1>HUNGARIAN ICE-HOCKEY</h1>
   </div>  
   <div class="container">
-    <form id="new_post_form" action="/posts" method="POST" enctype="application/json">
+    <form id="modified_post_form" action="" method="POST" enctype="application/json">
       <label for="title">title</label>
       <input required maxlength="100" type="text" id="title" name="title" >
       <label for="url">url</label>
       <input required maxlength="500" type="url" id="url" name="url"><br>
-      <button type="submit">SUBMIT</button>
+      <button type="submit">UPDATE POST</button>
     </form>
   </div>
+  <script>
+    // window.onload = () => {
+    //   const form = document.querySelector('form');
+    //   const postId = localStorage.getItem('selectedPostId');
+    //   const postTitle = localStorage.getItem('selectedPostTitle');
+    //   const postUrl = localStorage.getItem('selectedPostUrl');
+    //   const titleInput = document.querySelector('#post_title');
+    //   const urlInput = document.querySelector('#post_url');
+
+    //   form.action =`http://localhost:8888/posts/${postId}?_method=PUT`;
+    //   titleInput.value = postTitle;
+    //   urlInput.value = postUrl;
+    // }
+  </script>
+
 </body>
 </html>
