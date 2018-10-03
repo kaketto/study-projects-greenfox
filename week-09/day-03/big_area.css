@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  background-color: black;
+  grid-gap: 10px;
+}
+
+.bluebell {
+  background-color: #3B3B98;
+}
+
+.fuchsia {
+  background-color: #B33771;
+  display: grid;
+  grid-template: 1fr 4fr 1fr / 1fr 4fr 1fr;
+}
+
+.clear-chill {
+  background-color: #1B9CFC;
+  grid-area: 2 / 2 / span 1 /span 1;
+}
