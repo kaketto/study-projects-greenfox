@@ -10,6 +10,12 @@ window.onload = () => {
          "Content-Type": "application/json; charset=utf-8"
       }
     })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.result === 'success') {
+        location.reload();
+      }
+    })
   }
 
   const fetchToShip = (planetID) => {
@@ -17,6 +23,12 @@ window.onload = () => {
       method: 'post', 
       headers: {
          "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.result === 'success') {
+        location.reload();
       }
     })
   }
@@ -28,30 +40,36 @@ window.onload = () => {
          "Content-Type": "application/json; charset=utf-8"
       }
     })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.result === 'success') {
+        location.reload();
+      }
+    })
   }
 
   fetch(`${host}/planets`)
   .then((resp) => resp.json())
   .then((response) => {
-    console.log(response);
-    
-    let table = document.querySelector('table');
+
     let tbody = document.querySelector('tbody');
     
     response.forEach(element => {
       let shipUtilization;
       if (element.utilization !== null) {
         shipUtilization = element.utilization
-        console.log(shipUtilization);
       };
       
       let row = document.createElement('tr');
+
       let cellPlanet = document.createElement('td');
       cellPlanet.innerHTML = element.name;
       row.appendChild(cellPlanet);
+
       let cellPopulation = document.createElement('td');
       cellPopulation.innerHTML = element.population;
       row.appendChild(cellPopulation);
+
       let cellSpaceship = document.createElement('td');
       let cellUtilization = document.createElement('td');
       if (element.utilization === null) {
@@ -74,6 +92,7 @@ window.onload = () => {
         cellSpaceship.appendChild(toShipButton);
         cellUtilization.innerHTML = element.utilization;
       }
+      
       row.appendChild(cellSpaceship);
       row.appendChild(cellUtilization);
       tbody.appendChild(row)

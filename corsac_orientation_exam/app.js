@@ -50,16 +50,16 @@ app.post('/movehere/:planet_id', jsonParser, (req, res) => {
   let sqlUpdate = `update spaceship set ?;`;
   connection.query(sqlSearch, [planetID], function(err, result) {
     if (err) {
-      res.status(500).send('Database error');
+      res.status(500).json({"result": "error"}).send();
       return;
     }
     planetName = result[0].name;
     connection.query(sqlUpdate, {"planet": planetName}, function(err, result) {
       if (err) {
-        res.status(500).send('Database error');
+        res.status(500).json({"result": "error"}).send();
         return;
       }
-      res.redirect('/');
+      res.json({"result": "success"});
     });
   })
 });
@@ -73,7 +73,7 @@ app.post('/toship/:planet_id', jsonParser, (req, res) => {
   let sqlUpdate = `update planet set population = population - ? where id = ?; update spaceship set utilization = utilization + ? where id = 1`;
   connection.query(sqlSearch, [planetID], function(err, result) {
     if (err) {
-      res.status(500).send('Database error');
+      res.status(500).json({"result": "error"}).send();
       return;
     }
     peopleOnShip = result[0].utilization;
@@ -85,10 +85,10 @@ app.post('/toship/:planet_id', jsonParser, (req, res) => {
     }
     connection.query(sqlUpdate, [peopleToFillShip, planetID, peopleToFillShip], function(err, result) {
       if (err) {
-        res.status(500).send('Database error');
+        res.status(500).json({"result": "error"}).send();
         return;
       }
-      res.redirect('/');
+      res.json({"result": "success"});
     });
   });
 });
@@ -100,16 +100,16 @@ app.post('/toplanet/:planet_id', jsonParser, (req, res) => {
   let sqlUpdate = `update planet set population = population + ? where id = ?; update spaceship set utilization = 0 where id = 1`;
   connection.query(sqlSearch, function(err, result) {
     if (err) {
-      res.status(500).send('Database error');
+      res.status(500).json({"result": "error"}).send();
       return;
     }
     peopleOnShip = result[0].utilization;
     connection.query(sqlUpdate, [peopleOnShip, planetID], function(err, result) {
       if (err) {
-        res.status(500).send('Database error');
+        res.status(500).json({"result": "error"}).send();
         return;
       }
-      res.redirect('/');
+      res.json({"result": "success"});
     });
   });
 });
