@@ -44,13 +44,15 @@ window.onload = () => {
         }
         let allButtons = document.querySelectorAll('button');
         allButtons.forEach(elem => elem.disabled = true);
-        setTimeout(fetchNewQuestion, 5000);
+        setTimeout(fetchNewQuestion, 1000);
       })
       quizArea.appendChild(button);
     });
-
-
-
-
+    let finishBtn = document.querySelector('#finish_button');
+    finishBtn.addEventListener('click', () => {
+      score = 0;
+      h1.innerHTML = `SCORE: ${score}`;
+      localStorage.setItem("score", score);
+    })
   });
 };
