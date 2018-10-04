@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./assets/style.css">
+  <script type="text/javascript" src="./assets/admin.js"></script>
+  <title>Quiz application</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Manage questions</h1>
+    <div class="listOfQuestionsDiv"></div>
+    <h1>Create a new question</h1>
+    <div class="newQuestionDiv"></div>
+      <form id="newQuestionForm" action="http://localhost:8080/questions" method="POST" enctype="application/json">
+        <input required type="text" maxlength="100" id="newQuestion" name="newQuestion" placeholder="Type your question here">
+        <label for="answer">Answers</label><br>
+        #1 <input required type="text" maxlength="100" id="answer" name="answer" placeholder="Type your answer here">
+        <input type="radio" name="is_correct" value=1>
+        #2 <input required type="text" maxlength="100" id="answer" name="answer" placeholder="Type your answer here">
+        <input type="radio" name="is_correct" value=2>
+        #3 <input required type="text" maxlength="100" id="answer" name="answer" placeholder="Type your answer here">
+        <input type="radio" name="is_correct" value=3>
+        #4 <input required type="text" maxlength="100" id="answer" name="answer" placeholder="Type your answer here">
+        <input type="radio" name="is_correct" value=4>
+        <button type="submit">SUBMIT</button>
+      </form>
+    <a href="http://localhost:8080/">Go back to the game</a>
+  </div>
+</body>
+</html>
